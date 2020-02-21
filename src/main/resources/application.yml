@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: ${db.url:jdbc:mariadb://localhost:3306/toy}
+    username: ${db.username:root}
+    password: ${db.password:1234}
+  jpa:
+    show-sql: false
+    hibernate.ddl-auto: validate
+    properties.hibernate.dialect: org.hibernate.dialect.MariaDB53Dialect
+    properties.javax.persistence.validation.mode: none
+    properties.hibernate.validator.apply_to_ddl: false
+    properties.hibernate.format_sql: true
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+  messages:
+    basename: messages/messages
+    fallback-to-system-locale: false
+  flyway:
+    baseline-on-migrate: false
+logging:
+  level:
+    org.springframework.web: info
+    org.hibernate.type: error
+server:
+  port: 8089
